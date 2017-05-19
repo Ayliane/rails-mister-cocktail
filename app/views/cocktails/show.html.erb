@@ -2,7 +2,7 @@
   <div class="media-body">
     <div class="media-section">
       <h2><%= @cocktail.name %></h2>
-      <%= image_tag @cocktail.image %>
+      <%= cl_image_tag @cocktail.image.path, width: 500, height: 300, crop: :fill %>
     </div>
   </div>
   <div class="media-aside">
