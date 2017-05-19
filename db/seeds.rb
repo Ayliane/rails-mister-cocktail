@@ -1,5 +1,5 @@
-Doses.destroy_all
-Cocktails.destroy_all
+Dose.destroy_all
+Cocktail.destroy_all
 
 # puts "Opening seed file..."
 # responses = RestClient.get "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
