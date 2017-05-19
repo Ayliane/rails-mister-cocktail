@@ -1,15 +1,15 @@
 Dose.destroy_all
 Cocktail.destroy_all
 
-# puts "Opening seed file..."
-# responses = RestClient.get "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-# response = JSON.parse(responses)
+puts "Opening seed file..."
+responses = RestClient.get "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+response = JSON.parse(responses)
 
-# puts "Creating ingredients seeds"
-# response["drinks"].each do |ingredient|
-#   ingredient = ingredient["strIngredient1"]
-#   Ingredient.create!(name: ingredient)
-# end
+puts "Creating ingredients seeds"
+response["drinks"].each do |ingredient|
+  ingredient = ingredient["strIngredient1"]
+  Ingredient.create!(name: ingredient)
+end
 
 puts "Creating Cocktails seeds"
 pina_url = "http://www.sofizz.fr/blog/wp-content/uploads/2015/10/pinacolada.jpg"

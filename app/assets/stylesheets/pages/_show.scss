@@ -1,0 +1,16 @@
+#back {
+  font-size: 25px;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+#delete-btn {
+  margin-left: 45px;
+  font-size: 23px;
+  &:hover {
+    text-decoration: none;
+    font-style: italic;
+  }
+}

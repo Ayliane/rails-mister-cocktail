@@ -1,8 +1,8 @@
 <div class="media">
   <div class="media-body">
     <div class="media-section">
-      <h2><%= @cocktail.name %></h2>
-      <%= cl_image_tag @cocktail.image.path, width: 500, height: 300, crop: :fill %>
+      <h2><%= @cocktail.name %><span><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete, id: "delete-btn" %></span></h2>
+      <%= cl_image_tag @cocktail.image.path, width: 350, height: 250, crop: :fit %>
     </div>
   </div>
   <div class="media-aside">
@@ -10,15 +10,22 @@
       <h3>Ingredients</h3>
       <ul>
         <% @cocktail.doses.each do |dose| %>
-          <li><%= "#{dose.description} #{dose.ingredient.name} "%> | <%= link_to "Delete ingredient", dose_path(dose), method: :delete %></li>
+        <li><%= "#{dose.description} #{dose.ingredient.name} "%> | <%= link_to "Delete ingredient", dose_path(dose), method: :delete %></li>
         <% end %>
       </ul>
     </div>
     <div class="media-section">
-      <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>  <%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete, class: "btn btn-primary" %>
-      <br>
-      <br>
-      <%= link_to "Back", cocktails_path, class: "btn btn-success" %>
+      <h5>Add ingredients for <%= @cocktail.name %></h5>
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+      <%= f.input :description, placeholder: 'Quantity', label: false %>
+      <%= f.association :ingredient, prompt: 'Chose your ingredient', label: false %>
+      <%= f.submit "Add it!", class: "btn btn-success" %>
+      <% end %>
     </div>
+    <div class="media-section">
+      <br>
+      <br>
+      <%= link_to icon("arrow-left"), cocktails_path, id: "back" %>
     </div>
   </div>
+</div>

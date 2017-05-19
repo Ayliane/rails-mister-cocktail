@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 group :development, :test do
-
+  gem 'pry-rails'
   gem 'byebug', platform: :mri
 end
 

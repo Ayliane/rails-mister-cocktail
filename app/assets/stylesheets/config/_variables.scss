@@ -24,9 +24,9 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #CA3798;
+$brand-color: #21FA90;
 $light-brand_color: lighten($brand-color, 10%);
-$brand-secondary: #21FA90;
+$brand-secondary: darken($brand-color, 15%);
 $light-white: #fafafa;
 
 $red: #EE5F5B;
@@ -35,3 +35,4 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $gray: #000000;
+$dark-grey: #333333;

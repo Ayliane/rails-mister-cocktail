@@ -5,3 +5,7 @@ body {
 h2.title {
   margin-left: 10px;
 }
+
+h2, h3, p, label {
+  color: $dark-grey;
+}

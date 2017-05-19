@@ -6,6 +6,7 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @dose = Dose.new
     @doses = Dose.find_by(params[:cocktail_id])
   end
 
@@ -15,7 +16,6 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -35,6 +35,12 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :image)
+    permitted_params = params.require(:cocktail).permit(:name)
+    if params[:cocktail][:image].present?
+      permitted_params[:image] = params[:cocktail][:image]
+    else
+      permitted_params[:image] = params[:cocktail][:image_url]
+    end
+    permitted_params
   end
 end
